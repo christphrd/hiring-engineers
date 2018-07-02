@@ -22,6 +22,7 @@ I went to the Datadog website to see my metrics.
 ![Datadog Metrics](img/0-datadog-metrics.png)
 
 ## Collecting Metrics
+* Add tags in the Agent config file and show us a screenshot of your host and its tags on the Host Map page in Datadog.
 I found the path for the Agent config file (/etc/datadog-agent/datadog.yaml) from the documentation: https://docs.datadoghq.com/agent/basic_agent_usage/ubuntu/#configuration
 
 I needed a way to edit the YAML file. I would need to follow these instructions eventually: https://docs.datadoghq.com/getting_started/tagging/assigning_tags/#assigning-tags-using-the-configuration-files
@@ -45,3 +46,7 @@ I can use gedit to edit the YAML file now.
 
 It finally showed up on the Host Map page. I was looking at troubleshooting documentation to see why it was not displaying on the page. It must have just required some time.
 ![Host Map](img/1-host-map-page.png)
+
+* Install a database on your machine (MongoDB, MySQL, or PostgreSQL) and then install the respective Datadog integration for that database.
+
+---
