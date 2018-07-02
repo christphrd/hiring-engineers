@@ -68,3 +68,6 @@ I found the path for the Agent config file from this: https://docs.datadoghq.com
 
 I added tags.
 ![Agent Config Tags](img/1-agent-config-tags-macos.png)
+
+I restarted the Agent and checked the Host Map.
+![Host Map](img/1-host-map-tags.png)
