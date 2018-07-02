@@ -1,4 +1,4 @@
-#Christopher Diep
+##Christopher Diep
 Solutions Engineer Exercise for digesting technical concepts and presenting them
 
 ## Prequisites - Setup the environment
@@ -15,8 +15,33 @@ While upgrading, I signed up for Datadog.
 
 ![Datadog Signup](img/0-datadog-signup.png)
 
-I then followed step-by-step instructions to start the Agent with Ubuntu 14.04.
+I then followed step-by-step instructions to start the Agent with Ubuntu 14.04. (I could not determine why it would not allow me to update to the recommended version in the Readme earlier. I did see that there was an Agent for the v14.04.)
 
 I went to the Datadog website to see my metrics.
 
 ![Datadog Metrics](img/0-datadog-metrics.png)
+
+## Collecting Metrics
+I found the path for the Agent config file (/etc/datadog-agent/datadog.yaml) from the documentation: https://docs.datadoghq.com/agent/basic_agent_usage/ubuntu/#configuration
+
+I needed a way to edit the YAML file. I would need to follow these instructions eventually: https://docs.datadoghq.com/getting_started/tagging/assigning_tags/#assigning-tags-using-the-configuration-files
+
+I found code in the Vagrantfile to uncomment out.
+
+```
+config.vm.provider "virtualbox" do |vb|
+    # Display the VirtualBox GUI when booting the machine
+    vb.gui = true
+
+    # Customize the amount of memory on the VM:
+    vb.memory = "1024"
+  end
+```
+
+I set up a desktop environment with these instructions: https://stackoverflow.com/questions/18878117/using-vagrant-to-run-virtual-machines-with-desktop-environment
+
+I can use gedit to edit the YAML file now.
+![Agent Config](img/1-agent-config-tags.png)
+
+It finally showed up on the Host Map page. I was looking at troubleshooting documentation to see why it was not displaying on the page. It must have just required some time.
+![Host Map](img/1-host-map-page.png)
