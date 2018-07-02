@@ -71,3 +71,7 @@ I added tags.
 
 I restarted the Agent and checked the Host Map.
 ![Host Map](img/1-host-map-tags.png)
+
+* Install a database on your machine (MongoDB, MySQL, or PostgreSQL) and then install the respective Datadog integration for that database.
+
+Checking the documentation for my already installed PostgreSQL database: https://docs.datadoghq.com/integrations/postgres/
