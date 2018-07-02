@@ -1,7 +1,7 @@
 ##Christopher Diep
 Solutions Engineer Exercise for digesting technical concepts and presenting them
 
-## Prequisites - Setup the environment
+## Prequisites - Setup the environment (for VM)
 
 Following these instructions: https://www.vagrantup.com/intro/getting-started/
 1. I downloaded Vagrant and installed it.
@@ -21,7 +21,7 @@ I went to the Datadog website to see my metrics.
 
 ![Datadog Metrics](img/0-datadog-metrics.png)
 
-## Collecting Metrics
+## Collecting Metrics (for VM)
 * Add tags in the Agent config file and show us a screenshot of your host and its tags on the Host Map page in Datadog.
 I found the path for the Agent config file (/etc/datadog-agent/datadog.yaml) from the documentation: https://docs.datadoghq.com/agent/basic_agent_usage/ubuntu/#configuration
 
@@ -50,3 +50,21 @@ It finally showed up on the Host Map page. I was looking at troubleshooting docu
 * Install a database on your machine (MongoDB, MySQL, or PostgreSQL) and then install the respective Datadog integration for that database.
 
 ---
+
+I decided that installing it directly on my computer would go faster because it is taking me a while to get used to the VM.
+
+## Prequisites - Setup the environment (for MacOS)
+
+I used the command for the install.
+![MacOS agent install](img/0-datadog-install-macos.png)
+
+I looked at the metrics.
+![Agent Reporting Metrics](img/0-agent-reporting-metrics.png)
+
+## Collecting Metrics (for MacOS)
+* Add tags in the Agent config file and show us a screenshot of your host and its tags on the Host Map page in Datadog.
+
+I found the path for the Agent config file from this: https://docs.datadoghq.com/agent/basic_agent_usage/osx/#configuration
+
+I added tags.
+![Agent Config Tags](img/1-agent-config-tags-macos.png)
