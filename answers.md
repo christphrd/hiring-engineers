@@ -75,3 +75,18 @@ I restarted the Agent and checked the Host Map.
 * Install a database on your machine (MongoDB, MySQL, or PostgreSQL) and then install the respective Datadog integration for that database.
 
 Checking the documentation for my already installed PostgreSQL database: https://docs.datadoghq.com/integrations/postgres/
+
+I wrote these commands in terminal after typing `psql`
+
+```
+create user datadog with password '';
+grant SELECT ON pg_stat_database to datadog;
+```
+
+I verified permissions with this command
+```
+psql -h localhost -U datadog postgres -c \
+"select * from pg_stat_database LIMIT(1);" \
+&& echo -e "\e[0;32mPostgres connection - OK\e[0m" \
+|| echo -e "\e[0;31mCannot connect to Postgres\e[0m"
+```
