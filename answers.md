@@ -79,7 +79,7 @@ Checking the documentation for my already installed PostgreSQL database: https:/
 I wrote these commands in terminal after typing `psql`
 
 ```
-create user datadog with password '';
+create user datadog with password 'datadog';
 grant SELECT ON pg_stat_database to datadog;
 ```
 
@@ -90,3 +90,43 @@ psql -h localhost -U datadog postgres -c \
 && echo -e "\e[0;32mPostgres connection - OK\e[0m" \
 || echo -e "\e[0;31mCannot connect to Postgres\e[0m"
 ```
+I found more instructions here:
+https://app.datadoghq.com/account/settings#integrations/postgres
+
+I ran into an issue after doing a check with the info command `datadog-agent status`
+![Error](img/1-postgres-error.png)
+
+I checked the yaml file.
+```
+instances:
+  - host: localhost
+   port: 5432
+   username: datadog
+   password: datadog
+   dbname: PlaceMeApp_development
+   ssl: False
+#    use_psycopg2: False # Force using psycogp2 instead of pg8000 to connect. WARNING: psycopg2 doesn't support ssl mode.
+   tags:
+     - optional_tag1
+     - optional_tag2
+```
+
+I realized the spacing is off after seeing the example on this link: https://github.com/DataDog/integrations-core/blob/master/postgres/datadog_checks/postgres/data/conf.yaml.example
+
+```
+instances:
+  - host: localhost
+    port: 5432
+    username: datadog
+    password: datadog
+    dbname: PlaceMeApp_development
+    ssl: False
+#    use_psycopg2: False # Force using psycogp2 instead of pg8000 to connect. WARNING: psycopg2 doesn't support ssl mode.
+    tags:
+      - optional_tag1
+      - optional_tag2
+      - macos:postgres
+```
+
+The check with the info command `datadog-agent status` looks good.
+![Check](img/1-postgres-check.png)
